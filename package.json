@@ -1,0 +1,22 @@
+{
+  "name": "natsumisakai_p3_04252022",
+  "version": "1.0.0",
+  "description": "student project for OpenClassrooms",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natsumi37/natsumi_p3_04252022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/natsumi37/natsumi_p3_04252022/issues"
+  },
+  "homepage": "https://github.com/natsumi37/natsumi_p3_04252022#readme",
+  "dependencies": {
+    "normalize-scss": "^7.0.1"
+  }
+}

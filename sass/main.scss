@@ -104,9 +104,15 @@ $breakpoints: (
     border-radius: 20px;
     background-color: lighten($color-background, 15%);
     box-shadow: 5px 5px 5px 0 lighten($color-background, 5%);
-    &--differ {
+    &:hover {
       background-color: lighten($color-primary, 35%);
+      .how-to_icon {
+        color: $color-primary;
+      }
     }
+  }
+  &_icon {
+    color: lighten($text-color, 60%);
   }
   &_number {
     display: inline-flex;
@@ -147,12 +153,17 @@ $breakpoints: (
     @include mq(md){
       width: 400px;
     }
-    img {
+    .img {
       width: 100%;
       height: 70%;
       object-fit: cover;
-      object-position: 40% 60%;
       border-radius: 20px 20px 0 0;
+      portrait {
+        object-position: 40% 60%;
+      }
+      landscape {
+        object-position: 20% 80%;
+      }
     }
     &-descript {
       display: flex;

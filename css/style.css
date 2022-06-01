@@ -81,8 +81,14 @@ html, body {
   background-color: #f9f9f9;
   box-shadow: 5px 5px 5px 0 #e0e0e0;
 }
-.how-to_list--differ {
+.how-to_list:hover {
   background-color: #f2eafb;
+}
+.how-to_list:hover .how-to_icon {
+  color: #9356DC;
+}
+.how-to_icon {
+  color: #999999;
 }
 .how-to_number {
   display: inline-flex;
@@ -127,12 +133,17 @@ html, body {
     width: 400px;
   }
 }
-.menu_card img {
+.menu_card .img {
   width: 100%;
   height: 70%;
   object-fit: cover;
-  object-position: 40% 60%;
   border-radius: 20px 20px 0 0;
+}
+.menu_card .img portrait {
+  object-position: 40% 60%;
+}
+.menu_card .img landscape {
+  object-position: 20% 80%;
 }
 .menu_card-descript {
   display: flex;

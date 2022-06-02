@@ -52,10 +52,11 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3% 8% 8%;
+  padding: 3% 8% 50px;
 }
-.explore a {
-  margin-top: 3%;
+.explore p {
+  margin-bottom: 30px;
+  text-align: center;
 }
 .explore_btn {
   background: linear-gradient(to bottom right, #FF79DA, #9356DC);
@@ -64,6 +65,9 @@ html, body {
   padding: 18px 30px;
   color: white;
   box-shadow: 0 5px 5px 0 #e0e0e0;
+}
+.explore_btn:hover {
+  cursor: pointer;
 }
 
 .how-to {
@@ -82,6 +86,7 @@ html, body {
   box-shadow: 5px 5px 5px 0 #e0e0e0;
 }
 .how-to_list:hover {
+  cursor: pointer;
   background-color: #f2eafb;
 }
 .how-to_list:hover .how-to_icon {
@@ -122,6 +127,7 @@ html, body {
   }
 }
 .menu_card {
+  position: relative;
   width: 100%;
   height: 250px;
   border-radius: 20px;
@@ -139,29 +145,40 @@ html, body {
   object-fit: cover;
   border-radius: 20px 20px 0 0;
 }
-.menu_card .img portrait {
+.menu_card .img.portrait {
   object-position: 40% 60%;
 }
-.menu_card .img landscape {
-  object-position: 20% 80%;
+.menu_card .img.landscape {
+  object-position: 10% 90%;
+}
+.menu_card .label {
+  position: absolute;
+  color: #2c9c81;
+  background-color: #99E2D0;
+  width: 75px;
+  height: 30px;
+  font-weight: bolder;
+  text-align: center;
+  padding: 6px;
+  top: 20px;
+  right: 20px;
 }
 .menu_card-descript {
   display: flex;
   padding: 3% 5%;
   align-items: center;
 }
-.menu_card-text {
+.menu_card-descript .menu-text {
   display: flex;
   flex-direction: column;
   margin-right: auto;
   gap: 5px;
 }
-.menu_card-text h3, .menu_card-text p {
+.menu_card-descript .menu-text h3, .menu_card-descript .menu-text p {
   margin: 0;
 }
-.menu_card-like {
-  margin: 0;
-  font-size: 180%;
+.menu_card-descript .btn-like {
+  font-size: 30px;
 }
 
 footer {

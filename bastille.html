@@ -21,50 +21,178 @@
   <body>
     <header>
       <div class="menu-header">
-        <div class="menu-header_icon">
+        <a href="index.html" class="menu-header_icon">
           <i class="fa-solid fa-arrow-left"></i>
-        </div>
+        </a>
         <img src="images/ohmyfood.png" alt="logo of ohmyfood">
       </div>
     </header>
 
     <main>
-      <img class="img landscape" src="images/menu/menu_Bastille.jpg" alt="image of the Bastille">
-
-      <div class="course">
-        <div class="course_cover">
-          <h2 class="course-name">Bastille</h2>
-          <p class="menu_card-like">♡</p>
-        </div>
-
-        <div class="course-entrees">
-          <h3>ENTREES</h3>
-
-          <div class="course-entrees_card">
-            <h3 class="course-entrees_card-name">Citrus Squid Carpaccio</h3>
-            <p class="course-entrees_card-extra">With orange zest</p>
-            <p class="course-entrees_card-price">25€</p>
-          </div>
-
-          <div class="course-entrees_card">
-            <h3 class="course-entrees_card-name">Grandmother's Vegetable Soup</h3>
-            <p class="course-entrees_card-extra">Carrots, parsnips, Jerusalem artichoke</p>
-            <p class="course-entrees_card-price">35€</p>
-          </div>
-
-          <div class="course-entrees_card">
-            <h3 class="coures-entrees_card-name">Onion Soup</h3>
-            <p class="course-entrees_card-extra">Revisted</p>
-            <p class="course-entrees_card-price">20€</p>
-          </div>
-        </div>
-
+      <div class="course_img">
+        <img class="img landscape" src="images/menu/menu_Bastille.jpg" alt="image of the Bastille">
       </div>
 
+      <div class="course">
+        <div class="course_header">
+          <h2 class="course_header-name">Bastille</h2>
+          <div class="btn-like">
+            <i class="fa-regular fa-heart"></i>
+          </div>
+        </div>
+
+        <div class="course-menu">
+          <div class="course-menu_category">
+            <h3 class="category_container">ENTREES</h3>
+            <div class="category_container--underbar"></div>
+          </div>
+
+          <div class="course-menu_card">
+            <div class="menu_container">
+              <h3 class="menu_container--top">Citrus Squid Carpaccio</h3>
+              <div class="menu_container--bottom">
+                <p class="menu_container--bottom-add">With orange zest</p>
+                <p class="menu_container--bottom-price">25€</p>
+              </div>
+              <div class="menu_container--anime">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="course-menu_card delay-second">
+            <div class="menu_container">
+              <h3 class="menu_container--top">Grandmother's Vegetable Soup</h3>
+              <div class="menu_container--bottom">
+                <p class="menu_container--bottom-add">Carrots, parsnips, Jerusalem artichoke</p>
+                <p class="menu_container--bottom-price">35€</p>
+              </div>
+              <!-- <div class="course-menu_anim"></div> -->
+            </div>
+          </div>
+
+          <div class="course-menu_card delay-third">
+            <div class="menu_container">
+              <h3 class="menu_container--top">Onion Soup</h3>
+              <div class="menu_container--bottom">
+                <p class="menu_container--bottom-add">Revisted</p>
+                <p class="menu_container--bottom-price">20€</p>
+              </div>
+              <!-- <div class="course-menu_card--anim"></div> -->
+            </div>
+          </div>
+        </div> <!-- / course-menu for entrees -->
+
+        <div class="course-menu">
+          <div class="course-menu_category">
+            <h3 class="category_container">MAIN DISH</h3>
+            <div class="category_container--underbar"></div>
+          </div>
+
+          <div class="course-menu_card">
+            <div class="menu_container">
+              <h3 class="menu_container--top">Scallops</h3>
+              <div class="menu_container--bottom">
+                <p class="menu_container--bottom-add">With mashed parsnip</p>
+                <p class="menu_container--bottom-price">40€</p>
+              </div>
+              <!-- <div class="course-menu_card--anim"></div> -->
+            </div>
+          </div>
+
+          <div class="course-menu_card delay-second">
+            <div class="menu_container">
+              <h3 class="menu_container--top">Magret de canard</h3>
+              <div class="menu_container--bottom">
+                <p class="menu_container--bottom-add">With mashed potatoes</p>
+                <p class="menu_container--bottom-price">35€</p>
+              </div>
+              <!-- <div class="course-menu_card--anim"></div> -->
+            </div>
+          </div>
+
+          <div class="course-menu_card delay-third">
+            <div class="menu_container">
+              <h3 class="menu_container--top">Game Hen</h3>
+              <div class="menu_container--bottom">
+                <p class="menu_container--bottom-add">With vegetable gnocchis</p>
+                <p class="menu_container--bottom-price">44€</p>
+              </div>
+              <!-- <div class="course-menu_card--anim"></div> -->
+            </div>
+          </div>
+        </div> <!-- / course-menu for main dish -->
+
+        <div class="course-menu">
+          <div class="course-menu_category">
+            <h3 class="category_container">DESSERTS</h3>
+            <div class="category_container--underbar"></div>
+          </div>
+
+          <div class="course-menu_card">
+            <div class="menu_container">
+              <h3 class="menu_container--top">Floral Ice Cream</h3>
+              <div class="menu_container--bottom">
+                <p class="menu_container--bottom-add">With hazelnut butter</p>
+                <p class="menu_container--bottom-price">18€</p>
+              </div>
+              <!-- <div class="course-menu_card--anim"></div> -->
+            </div>
+          </div>
+
+          <div class="course-menu_card delay-second">
+            <div class="menu_container">
+              <h3 class="menu_container--top">Chocolate Lava Cake</h3>
+              <div class="menu_container--bottom">
+                <p class="menu_container--bottom-add">Revisited</p>
+                <p class="menu_container--bottom-price">22€</p>
+              </div>
+              <!-- <div class="course-menu_card--anim"></div> -->
+            </div>
+          </div>
+          
+          <div class="course-menu_card delay-third">
+            <div class="menu_container">
+              <h3 class="menu_container--top">Napolean</h3>
+              <div class="menu_container--bottom">
+                <p class="menu_container--bottom-add">With blueberries and marzipan</p>
+                <p class="menu_container--bottom-price">23€</p>
+              </div>
+              <!-- <div class="course-menu_card--anim"></div> -->
+            </div>
+          </div>
+        </div> <!-- / course-menu for dessert -->
+        
+        <button type="button" class="course_btn">Order</button>
+      </div>
     </main>
 
     <footer>
+      <h3 class="text_logo">ohmyfood</h3>
 
+      <ul>
+        <li>
+          <div class="footer_list">
+            <i class="fa-solid fa-utensils"></i>
+
+            <p>Suggest a restaurant</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="footer_list">
+            <i class="fa-solid fa-handshake-angle"></i>
+
+            <p>Become a partner</p>
+          </div>
+        </li>
+
+        <li><p>Legal</p></li>
+
+        <li>
+          <a href="mailto: test@ohmyfood.com" class="footer_mail">Contact</a>
+        </li>
+      </ul>
     </footer>
 
   </body>

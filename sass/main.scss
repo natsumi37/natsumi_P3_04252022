@@ -27,6 +27,7 @@ $color-tertiary: #99E2D0;
 $color-background: #D3D3D3;
 $text-color: black;
 
+
 // breakpoints
 
 $sizes: sm, md, lg, xl;
@@ -38,11 +39,71 @@ $breakpoints: (
   'xl': 'screen and (min-width: 1280px)',
 ) !default;
 
+// media query
+
 @mixin mq ($size) {
   @media #{map-get($breakpoints, $size)}{
     @content;
   }
 }
+
+// images
+
+@mixin img_portrait {
+  object-position: 40% 60%;
+}
+@mixin img_landscape {
+  object-position: 10% 90%;
+}
+
+// button
+
+@mixin btn {
+  background: linear-gradient(to bottom right, $color-secondary, $color-primary);
+  border-radius: 30px;
+  border: none;
+  padding: 18px 30px;
+  color: lighten($text-color, 100%);
+  box-shadow: 0 5px 5px 0 lighten($color-background, 5%);
+  &:hover {
+    cursor: pointer;
+    background: linear-gradient(to bottom right, (lighten($color-secondary, 2%), lighten($color-primary, 2%)));
+    box-shadow: 0 5px 5px 0 $color-background;
+  }
+}
+
+// footer
+
+@mixin footer {
+  background-color: darken($color-background, 60%);
+  color: lighten($text-color, 100%);
+  padding: 3% 8%;
+  .text_logo {
+    font-family: 'Shrikhand', cursive;
+    font-weight: lighter;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    p {
+      margin: 0;
+    }
+    li {
+      margin: 10px 0;
+    }
+    .footer_list {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .footer_mail {
+      text-decoration: none;
+      color: lighten($text-color, 100%);
+    }
+  }
+}
+
+// ============= home ==============
 
 .home-header {
   display: flex;
@@ -54,7 +115,6 @@ $breakpoints: (
   @include mq(md) {
     img {
       width: 300px;
-      padding: 3%;
     }
   }
 }
@@ -83,15 +143,7 @@ $breakpoints: (
     text-align: center;
   }
   &_btn {
-    background: linear-gradient(to bottom right, $color-secondary, $color-primary);
-    border-radius: 30px;
-    border: none;
-    padding: 18px 30px;
-    color: lighten($text-color, 100%);
-    box-shadow: 0 5px 5px 0 lighten($color-background, 5%);
-    &:hover {
-      cursor: pointer;
-    }
+    @include btn;
   }
 }
 
@@ -130,7 +182,6 @@ $breakpoints: (
     color: lighten($text-color, 100%);
     margin-left: -15px;
   }
-
 }
 
 #menu {
@@ -149,6 +200,10 @@ $breakpoints: (
     flex-wrap: wrap;
     flex-direction: row;
   }
+  a {
+    text-decoration: none;
+    color: $text-color;
+  }
   &_card {
     position: relative;
     width: 100%;
@@ -165,10 +220,10 @@ $breakpoints: (
       object-fit: cover;
       border-radius: 20px 20px 0 0;
       &.portrait {
-        object-position: 40% 60%;
+        @include img_portrait;
       }
       &.landscape {
-        object-position: 10% 90%;
+        @include img_landscape;
       }
     }
     .label {
@@ -204,31 +259,149 @@ $breakpoints: (
 }
 
 footer {
-  background-color: darken($color-background, 60%);
-  color: lighten($text-color, 100%);
-  padding: 3% 8%;
-  .text_logo {
-    font-family: 'Shrikhand', cursive;
-    font-weight: lighter;
+  @include footer;
+  z-index: 3;
+}
+
+// ============ menu ==============
+
+.menu-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &_icon {
+    position: absolute;
+    left: 3%;
+    padding-top: 3%;
+    text-decoration: none;
+    color: $text-color;
+    font-size: 25px;
   }
-  ul {
-    list-style: none;
-    padding: 0;
-    p {
-      margin: 0;
-    }
-    li {
-      margin: 10px 0;
-    }
-    .footer_list {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-    }
-    .footer_mail {
-      text-decoration: none;
-      color: lighten($text-color, 100%);
-    }
+  img {
+    width: 60%;
+    padding: 3% 3% 0 0;
   }
 }
 
+.course_img {
+  padding: 3% 0 0 0;
+  position: relative;
+  z-index: 1;
+  .img.landscape {
+    width: 100%;
+    @include img_landscape;
+  }
+}
+
+.course {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  margin-top: -60px;
+  gap: 20px;
+  background-color: lighten($color-background, 15%);
+  border-radius: 40px 40px 0 0;
+  padding: 3% 3% 50px;
+  &_header {
+    display: flex;
+    align-items: baseline;
+    padding: 2%;
+    &-name {
+      font-family: 'Shrikhand', cursive;
+      font-size: 200%;
+      margin-right: auto;
+    }
+    .btn-like {
+      font-size: 30px;
+    }
+  }
+
+  &-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    &_category {
+      .category_container {
+        color: lighten($text-color, 10%);
+        font-weight: 400;
+        &--underbar {
+          border-top: solid 3px $color-tertiary;
+          width: 50px;
+        }
+      }
+    }
+    &_card {
+      background-color: lighten($text-color, 100%);
+      border-radius: 20px;
+      box-shadow: 5px 5px 5px 0 lighten($color-background, 5%);
+      animation: fadeup 1000ms 100ms ease forwards;
+      opacity: 0;
+      @keyframes fadeup {
+        from {
+          opacity: 0;
+          transform: translateY(-5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      &.delay-second {
+        animation-delay: 400ms;
+      }
+      &.delay-third {
+        animation-delay: 700ms;
+      }
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        background-color: $color-tertiary;
+        transform-origin: center right;
+        transform: scaleX(0%);
+        transition: transform 500ms;
+      }
+      &:hover::before {
+        transform: scaleX(20%);
+      }
+      .menu_container {
+        display: flex;
+        flex-direction: column;
+        padding: 3%;
+        gap: 5px;
+        &--top {
+          margin: 0;
+        }
+        &--bottom {
+          display: flex;
+          &-add {
+            margin: 0;
+          }
+          &-price {
+            margin: 0 0 0 auto;
+            font-weight: 700;
+          }
+        }
+        &--anime {
+          display: none;
+          &:hover {
+            display: inline-block;
+
+
+          }
+        }
+      }
+    }
+  } // end /.course-menu
+  .course_btn {
+    @include btn;
+    width: 200px;
+    margin: 20px auto 0 auto;
+  }
+} // end / .course

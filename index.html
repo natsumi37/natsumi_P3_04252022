@@ -21,7 +21,7 @@
 
   <body>
     <header>
-      <div class="home-header">
+      <div class="home_header">
         <img src="images/ohmyfood.png" alt="logo of ohmyfood">
       </div>
 
@@ -37,128 +37,142 @@
         <h2>Book the menu you like</h2>
         <p>Discover top-of-the-art restaurants we picked for you</p>
 
-        <a href="#menu">
+        <a href="#restaurant">
           <button type="button" class="explore_btn">Explore our restaurants</button>
         </a>
       </div>
 
-      <div class="how-to">
+      <div class="intro">
         <h2>How it works</h2>
 
-        <div class="how-to_list">
-          <p class="how-to_number">1</p>
+        <div class="intro--large">
+          <div class="intro_list">
+            <p class="intro_item">1</p>
 
-          <div class="how-to_icon">
-            <i class="fa-solid fa-mobile-screen-button"></i>
-          </div>
+            <div class="intro_icon">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
 
-          <div class="how-to_text">
-            <p><bold>Choose a restaurant</bold></p>
-          </div>
-        </div> <!-- / how-to_list 1-->
+            <div class="intro_text">
+              <p><bold>Choose a restaurant</bold></p>
+            </div>
+          </div> <!-- / intro_list 1-->
 
-        <div class="how-to_list">
-          <p class="how-to_number">2</p>
+          <div class="intro_list">
+            <p class="intro_item">2</p>
 
-          <div class="how-to_icon">
-            <i class="fa-solid fa-list"></i>
-          </div>
+            <div class="intro_icon">
+              <i class="fa-solid fa-list"></i>
+            </div>
 
-          <div class="how-to_text">
-            <p><bold>Create your menu</bold></p>
-          </div>
-        </div> <!-- / how-to_list 2-->
+            <div class="intro_text">
+              <p><bold>Create your menu</bold></p>
+            </div>
+          </div> <!-- / intro_list 2-->
 
-        <div class="how-to_list">
-          <p class="how-to_number">3</p>
-        
-          <div class="how-to_icon">
-            <i class="fa-solid fa-store"></i>
-          </div>
+          <div class="intro_list">
+            <p class="intro_item">3</p>
+          
+            <div class="intro_icon">
+              <i class="fa-solid fa-store"></i>
+            </div>
 
-          <div class="how-to_text">
-            <p><bold>Go enjoy it at the restaurant</bold></p>
-          </div>
-        </div> <!-- / how-to_list 3-->
+            <div class="intro_text">
+              <p><bold>Go enjoy it at the restaurant</bold></p>
+            </div>
+          </div> <!-- / intro_list 3-->
+        </div> <!-- / intro--large -->
 
-      </div> <!-- / how-to -->
+      </div> <!-- / intro -->
     </header>
 
     <main>
-      <section id="menu">
-        <h2>Restaurants</h2>
+      <section id="restaurant">
+        <h2 class="restaurant_title">Restaurants</h2>
 
-        <div class="menu">
+        <div class="restaurant">
           <a href="bastille.html">
-            <div class="menu_card">
+            <div class="card">
               <img class="img landscape" src="images/menu/menu_The-Full-Palette.jpg" alt="image of the-full-palette menu">
               
               <span class="label">New</span>
 
-              <div class="menu_card-descript">
-                <div class="menu-text">
+              <div class="card_heading">
+                <div class="card_text">
                   <h3>The Full Palette</h3>
                   <p>New York</p>
                 </div>
 
-                <div class="btn-like">
+                <div class="like_btn">
                   <i class="fa-regular fa-heart"></i>
                 </div>
+                <div class="like_btn--selected">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
               </div>
-            </div> <!-- / menu_card 1-->
+            </div> <!-- / card 1-->
           </a>
 
           <a href="#">
-            <div class="menu_card">
+            <div class="card">
               <img class="img portrait" src="images/menu/menu_The-Enchanted-Plate.jpg" alt="image of the-enchanted-plate menu">
 
               <span class="label">New</span>
 
-              <div class="menu_card-descript">
-                <div class="menu-text">
+              <div class="card_heading">
+                <div class="card_text">
                   <h3>The Enchanted Plate</h3>
                   <p>New York</p>
                 </div>
 
-                <div class="btn-like">
+                <div class="like_btn">
                   <i class="fa-regular fa-heart"></i>
                 </div>
+                <div class="like_btn--selected">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
               </div>
-            </div> <!-- / menu_card 2-->
+            </div> <!-- / card 2-->
           </a>
 
           <a href="#">
-            <div class="menu_card">
+            <div class="card">
               <img class="img landscape" src="images/menu/menu_Bastille.jpg" alt="image of bastille menu">
 
-              <div class="menu_card-descript">
-                <div class="menu-text">
+              <div class="card_heading">
+                <div class="card_text">
                   <h3>Bastille</h3>
                   <p>New York</p>
                 </div>
 
-                <div class="btn-like">
+                <div class="like_btn">
                   <i class="fa-regular fa-heart"></i>
                 </div>
+                <div class="like_btn--selected">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
               </div>
-            </div> <!-- / menu_card 3-->
+            </div> <!-- / card 3-->
           </a>
 
           <a href="#">
-            <div class="menu_card">
+            <div class="card">
               <img class="img landscape" src="images/menu/menu_Le-Gourmand.jpg" alt="image of le-gourmand menu">
 
-              <div class="menu_card-descript">
-                <div class="menu-text">
+              <div class="card_heading">
+                <div class="card_text">
                   <h3>Le Gourmand</h3>
                   <p>New York</p>
                 </div>
 
-                <div class="btn-like">
+                <div class="like_btn">
                   <i class="fa-regular fa-heart"></i>
                 </div>
+                <div class="like_btn--selected">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
               </div>
-            </div> <!-- / menu_card 4-->
+            </div> <!-- / card 4-->
           </a>
           
         </div>
@@ -166,33 +180,32 @@
     </main>
 
     <footer>
-      <h3 class="text_logo">ohmyfood</h3>
+      <h3 class="footer_heading">ohmyfood</h3>
 
       <ul>
         <li>
           <div class="footer_list">
             <i class="fa-solid fa-utensils"></i>
-
             <p>Suggest a restaurant</p>
           </div>
-        </li>
+        </li> <!-- list 1 -->
 
         <li>
           <div class="footer_list">
             <i class="fa-solid fa-handshake-angle"></i>
-
             <p>Become a partner</p>
           </div>
-        </li>
-
-        <li><p>Legal</p></li>
+        </li> <!-- list 2 -->
 
         <li>
-          <a href="mailto: test@ohmyfood.com" class="footer_mail">Contact</a>
-        </li>
+          <p>Legal</p>
+        </li> <!-- list 3 -->
+
+        <li>
+          <a href="mailto: test@ohmyfood.com" class="footer_contact">Contact</a>
+        </li> <!-- list 4 -->
       </ul>
     </footer>
-      
-  </body>
 
+  </body>
 </html>

@@ -19,16 +19,16 @@ html, body {
   box-sizing: border-box;
 }
 
-.home-header {
+.home_header {
   display: flex;
   justify-content: center;
 }
-.home-header img {
+.home_header img {
   width: 60%;
-  padding: 3%;
+  margin: 25px;
 }
 @media screen and (min-width: 768px) {
-  .home-header img {
+  .home_header img {
     width: 300px;
   }
 }
@@ -53,6 +53,9 @@ html, body {
   align-items: center;
   padding: 3% 8% 50px;
 }
+.explore h2 {
+  text-align: center;
+}
 .explore p {
   margin-bottom: 30px;
   text-align: center;
@@ -71,32 +74,55 @@ html, body {
   box-shadow: 0 5px 5px 0 #D3D3D3;
 }
 
-.how-to {
+.intro {
   display: flex;
   flex-direction: column;
   padding: 3% 8% 8%;
   gap: 15px;
 }
-.how-to_list {
+@media screen and (min-width: 768px) {
+  .intro h2 {
+    text-align: center;
+  }
+}
+.intro--large {
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
+  gap: 10px;
+}
+@media screen and (min-width: 768px) {
+  .intro--large {
+    flex-direction: row;
+    gap: 30px;
+  }
+}
+.intro_list {
+  display: flex;
+  align-items: center;
   gap: 10px;
   padding: 5px;
   border-radius: 20px;
   background-color: #f9f9f9;
   box-shadow: 5px 5px 5px 0 #e0e0e0;
+  position: relative;
 }
-.how-to_list:hover {
+@media screen and (min-width: 768px) {
+  .intro_list {
+    width: calc((100% - 10px) / 3);
+  }
+}
+.intro_list:hover {
   cursor: pointer;
   background-color: #f2eafb;
 }
-.how-to_list:hover .how-to_icon {
+.intro_list:hover .intro_icon {
   color: #9356DC;
 }
-.how-to_icon {
+.intro_icon {
   color: #999999;
+  margin-left: 15px;
 }
-.how-to_number {
+.intro_item {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -105,10 +131,11 @@ html, body {
   height: 30px;
   border-radius: 50%;
   color: white;
-  margin-left: -15px;
+  position: absolute;
+  left: -15px;
 }
 
-#menu {
+#restaurant {
   background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
@@ -116,47 +143,53 @@ html, body {
   padding: 3% 8% 8%;
 }
 
-.menu {
+.restaurant {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 @media screen and (min-width: 768px) {
-  .menu {
+  .restaurant {
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: center;
   }
 }
-.menu a {
+@media screen and (min-width: 768px) {
+  .restaurant_title {
+    text-align: center;
+  }
+}
+.restaurant a {
   text-decoration: none;
   color: black;
 }
-.menu_card {
+@media screen and (min-width: 768px) {
+  .restaurant a {
+    width: calc((100% - 20px) / 2);
+  }
+}
+.restaurant .card {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 280px;
   border-radius: 20px;
   box-shadow: 5px 5px 5px 0 #e0e0e0;
   gap: 10px;
 }
-@media screen and (min-width: 768px) {
-  .menu_card {
-    width: 400px;
-  }
-}
-.menu_card .img {
+.restaurant .card .img {
   width: 100%;
   height: 70%;
   object-fit: cover;
   border-radius: 20px 20px 0 0;
 }
-.menu_card .img.portrait {
+.restaurant .card .img.portrait {
   object-position: 40% 60%;
 }
-.menu_card .img.landscape {
-  object-position: 10% 90%;
+.restaurant .card .img.landscape {
+  object-position: 20% 80%;
 }
-.menu_card .label {
+.restaurant .card .label {
   position: absolute;
   color: #2c9c81;
   background-color: #99E2D0;
@@ -168,22 +201,53 @@ html, body {
   top: 20px;
   right: 20px;
 }
-.menu_card-descript {
+.restaurant .card_heading {
   display: flex;
-  padding: 3% 5%;
+  padding: 3% 20px;
   align-items: center;
 }
-.menu_card-descript .menu-text {
+.restaurant .card_text {
   display: flex;
   flex-direction: column;
   margin-right: auto;
   gap: 5px;
 }
-.menu_card-descript .menu-text h3, .menu_card-descript .menu-text p {
+.restaurant .card_text h3, .restaurant .card_text p {
   margin: 0;
 }
-.menu_card-descript .btn-like {
+
+.like_btn {
+  position: relative;
   font-size: 30px;
+  background-image: linear-gradient(#9356DC, #FF79DA);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+}
+.like_btn--selected {
+  position: absolute;
+  right: 20px;
+  font-size: 30px;
+  background-image: linear-gradient(#9356DC, #FF79DA);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  opacity: 0;
+}
+.like_btn--selected:hover {
+  animation: fill 500ms ease-in-out forwards;
+  cursor: pointer;
+}
+@keyframes fill {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 footer {
@@ -192,7 +256,7 @@ footer {
   padding: 3% 8%;
   z-index: 3;
 }
-footer .text_logo {
+footer .footer_heading {
   font-family: "Shrikhand", cursive;
   font-weight: lighter;
 }
@@ -206,87 +270,194 @@ footer ul p {
 footer ul li {
   margin: 10px 0;
 }
-footer ul .footer_list {
+footer .footer_list {
   display: flex;
   align-items: baseline;
   gap: 10px;
 }
-footer ul .footer_mail {
+footer .footer_contact {
   text-decoration: none;
   color: white;
 }
 
-.menu-header {
+.course_header {
   display: flex;
-  justify-content: center;
   align-items: center;
+  margin: 25px;
 }
-.menu-header_icon {
-  position: absolute;
-  left: 3%;
-  padding-top: 3%;
+.course_header .course_icon {
   text-decoration: none;
   color: black;
-  font-size: 25px;
+  font-size: 20px;
 }
-.menu-header img {
+.course_header img {
   width: 60%;
-  padding: 3% 3% 0 0;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .course_header img {
+    width: 300px;
+  }
 }
 
-.course_img {
-  padding: 3% 0 0 0;
+.course_feature {
   position: relative;
   z-index: 1;
 }
-.course_img .img.landscape {
+.course_feature .img.landscape {
   width: 100%;
-  object-position: 10% 90%;
+  object-fit: cover;
+  object-position: 20% 80%;
+}
+@media screen and (min-width: 768px) {
+  .course_feature .img.landscape {
+    height: 400px;
+  }
 }
 
-.course {
+.course_background {
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: relative;
   z-index: 2;
   width: 100%;
   margin-top: -60px;
   gap: 20px;
   background-color: #f9f9f9;
   border-radius: 40px 40px 0 0;
-  padding: 3% 3% 50px;
+  padding: 30px 3% 50px;
 }
-.course_header {
+
+.course_heading {
   display: flex;
   align-items: baseline;
-  padding: 2%;
+  padding: 0 20px;
 }
-.course_header-name {
+.course_heading h2 {
   font-family: "Shrikhand", cursive;
   font-size: 200%;
-  margin-right: auto;
+  margin: 0 auto 0 0;
 }
-.course_header .btn-like {
+@media screen and (min-width: 768px) {
+  .course_heading h2 {
+    margin: 0 auto;
+  }
+}
+
+.course_btn {
+  position: relative;
   font-size: 30px;
+  background-image: linear-gradient(#9356DC, #FF79DA);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
 }
-.course-menu {
+.course_btn--selected {
+  position: absolute;
+  top: 30px;
+  right: calc(3% + 20px);
+  font-size: 30px;
+  background-image: linear-gradient(#9356DC, #FF79DA);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  opacity: 0;
+}
+.course_btn--selected:hover {
+  animation: fill 500ms ease-in-out forwards;
+  cursor: pointer;
+}
+@keyframes fill {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.menu_wrapper {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.course-menu_category .category_container {
+
+.menu--large {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media screen and (min-width: 768px) {
+  .menu--large {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px;
+  }
+}
+
+.menu_heading {
   color: #1a1a1a;
   font-weight: 400;
 }
-.course-menu_category .category_container--underbar {
+.menu_heading-bar {
   border-top: solid 3px #99E2D0;
   width: 50px;
 }
-.course-menu_card {
+
+.menu {
+  display: flex;
   background-color: white;
   border-radius: 20px;
   box-shadow: 5px 5px 5px 0 #e0e0e0;
+  overflow: hidden;
   animation: fadeup 1000ms 100ms ease forwards;
+  opacity: 0;
+}
+@media screen and (min-width: 768px) {
+  .menu {
+    width: 33.3333333333%;
+    height: 120px;
+  }
+}
+.menu_text {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 5px;
+  width: 100%;
+  transform-origin: right;
+}
+@media screen and (min-width: 768px) {
+  .menu_text {
+    justify-content: center;
+  }
+}
+.menu_name {
+  margin: 0;
+}
+.menu_bottom {
+  display: flex;
+}
+.menu_bottom-side {
+  margin: 0;
+}
+.menu_bottom-price {
+  margin: 0 0 0 auto;
+  font-weight: 700;
+}
+.menu--selected {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #99E2D0;
+  font-size: 40px;
+  width: 0;
+  transform-origin: right;
+  transform: translateX(120%);
   opacity: 0;
 }
 @keyframes fadeup {
@@ -299,54 +470,54 @@ footer ul .footer_mail {
     transform: translateY(0);
   }
 }
-.course-menu_card.delay-second {
+.menu.delay-second {
   animation-delay: 400ms;
 }
-.course-menu_card.delay-third {
+.menu.delay-third {
   animation-delay: 700ms;
 }
-.course-menu_card::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  content: "";
-  background-color: #99E2D0;
-  transform-origin: center right;
-  transform: scaleX(0%);
-  transition: transform 500ms;
+.menu:hover {
+  cursor: pointer;
 }
-.course-menu_card:hover::before {
-  transform: scaleX(20%);
+.menu:hover .menu_text {
+  animation: slide_text 800ms forwards;
 }
-.course-menu_card .menu_container {
-  display: flex;
-  flex-direction: column;
-  padding: 3%;
-  gap: 5px;
+@keyframes slide_text {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 80%;
+  }
 }
-.course-menu_card .menu_container--top {
-  margin: 0;
+.menu:hover .menu_name, .menu:hover .menu_bottom-side {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.course-menu_card .menu_container--bottom {
-  display: flex;
+.menu:hover .menu--selected {
+  opacity: 1;
+  transform: translateX(0%);
+  transition-duration: 800ms;
+  animation: slide_anime 800ms forwards;
 }
-.course-menu_card .menu_container--bottom-add {
-  margin: 0;
+@keyframes slide_anime {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 20%;
+  }
 }
-.course-menu_card .menu_container--bottom-price {
-  margin: 0 0 0 auto;
-  font-weight: 700;
+.menu:hover .fa-solid.fa-circle-check {
+  animation: rotation 500ms 300ms forwards;
 }
-.course-menu_card .menu_container--anime {
-  display: none;
+@keyframes rotation {
+  to {
+    transform: rotate(1turn);
+  }
 }
-.course-menu_card .menu_container--anime:hover {
-  display: inline-block;
-}
-.course .course_btn {
+.menu_btn {
   background: linear-gradient(to bottom right, #FF79DA, #9356DC);
   border-radius: 30px;
   border: none;
@@ -356,7 +527,7 @@ footer ul .footer_mail {
   width: 200px;
   margin: 20px auto 0 auto;
 }
-.course .course_btn:hover {
+.menu_btn:hover {
   cursor: pointer;
   background: linear-gradient(to bottom right, #ff83dd, #985ede);
   box-shadow: 0 5px 5px 0 #D3D3D3;

@@ -1,10 +1,11 @@
 {
   "name": "natsumisakai_p3_04252022",
   "version": "1.0.0",
-  "description": "student project for OpenClassrooms",
+  "description": "a student project",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./css/style.css"
+    "sass": "sass --watch ./sass/main.scss:./css/style.css --style compressed",
+    "prefix": "postcss ./css/style.css --use autoprefixer -o ./css/style.css"
   },
   "repository": {
     "type": "git",
@@ -12,6 +13,7 @@
   },
   "author": "",
   "license": "ISC",
+  "browserslist": "last 4 versions",
   "bugs": {
     "url": "https://github.com/natsumi37/natsumi_p3_04252022/issues"
   },

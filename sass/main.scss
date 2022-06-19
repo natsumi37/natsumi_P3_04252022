@@ -72,9 +72,7 @@ $breakpoints: (
   }
 }
 
-@mixin like_btn {
-  position: relative;
-  font-size: 30px;
+@mixin btn--color {
   background-image: linear-gradient($color-primary, $color-secondary);
   background-clip: text;
   color: transparent;
@@ -115,6 +113,45 @@ $breakpoints: (
 
 
 // ============= home ==============
+
+.cover_home {
+  opacity: 0.5;
+  animation: opacity 600ms 2700ms forwards;
+}
+@keyframes opacity {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.cover_home::before {
+  content:"";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -30px;
+  margin-left: -30px;
+  width: 60px;
+  height: 60px;
+  border: solid 8px $color-background;
+  border-top: solid 8px darken($color-tertiary, 20%);
+  border-radius: 50%;
+  opacity: 1;
+  animation: spinner 3000ms linear forwards;
+  }
+  @keyframes spinner {
+  from {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(720deg);
+    opacity: 0;
+  }
+}
 
 .home_header {
   display: flex;
@@ -189,6 +226,7 @@ $breakpoints: (
     position: relative;
     @include mq(md) {
       width: calc((100% - 10px) / 3);
+      padding: 10px;
     }
     &:hover {
       cursor: pointer;
@@ -294,20 +332,14 @@ $breakpoints: (
 }
 
 .like_btn {
+  @include btn--color;
   position: relative;
   font-size: 30px;
-  background-image: linear-gradient($color-primary, $color-secondary);
-  background-clip: text;
-  color: transparent;
-  -webkit-background-clip: text;
   &--selected {
+    @include btn--color;
     position: absolute;
     right: 20px;
     font-size: 30px;
-    background-image: linear-gradient($color-primary, $color-secondary);
-    background-clip: text;
-    color: transparent;
-    -webkit-background-clip: text;
     opacity: 0;
     &:hover {
       animation: fill 500ms ease-in-out forwards;
@@ -326,7 +358,6 @@ $breakpoints: (
     }
   }
 }
-
 
 footer {
   @include footer;
@@ -364,6 +395,15 @@ footer {
       height: 400px;
     }
   }
+  .img.portrait {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    @include img_portrait;
+    @include mq(md) {
+      height: 400px;
+    }
+  }
 }
 
 .course_background {
@@ -394,21 +434,15 @@ footer {
 }
 
 .course_btn {
+  @include btn--color;
   position: relative;
   font-size: 30px;
-  background-image: linear-gradient($color-primary, $color-secondary);
-  background-clip: text;
-  color: transparent;
-  -webkit-background-clip: text;
   &--selected {
+    @include btn--color;
     position: absolute;
     top: 30px;
     right: calc(3% + 20px);
     font-size: 30px;
-    background-image: linear-gradient($color-primary, $color-secondary);
-    background-clip: text;
-    color: transparent;
-    -webkit-background-clip: text;
     opacity: 0;
     &:hover {
       animation: fill 500ms ease-in-out forwards;
@@ -461,7 +495,7 @@ footer {
   box-shadow: 5px 5px 5px 0 lighten($color-background, 5%);
   overflow: hidden;
   @include mq(md) {
-    width: (100% / 3);
+    width: calc(100% / 3);
     height: 120px;
   }
   &_text {
@@ -517,6 +551,9 @@ footer {
   }
   &.delay-third {
     animation-delay: 700ms;
+  }
+  &.delay-fourth {
+    animation-delay: 1000ms;
   }
   &:hover {
     cursor: pointer;

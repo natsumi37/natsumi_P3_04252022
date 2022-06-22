@@ -1,0 +1,249 @@
+.cover_home {
+  opacity: 0.5;
+  animation: opacity 600ms 2700ms forwards;
+}
+@keyframes opacity {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.cover_home::before {
+  content:"";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -30px;
+  margin-left: -30px;
+  width: 60px;
+  height: 60px;
+  border: solid 8px $color-background;
+  border-top: solid 8px darken($color-tertiary, 20%);
+  border-radius: 50%;
+  opacity: 1;
+  animation: spinner 3000ms linear forwards;
+  }
+  @keyframes spinner {
+  from {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.home_header {
+  display: flex;
+  justify-content: center;
+  img {
+    width: 60%;
+    margin: 25px;
+    @include mq(md) {
+      width: 300px;
+    }
+  }
+}
+
+.location {
+  background-color: lighten($color-background, 10%);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  box-shadow: inset 0 3px 3px 0 lighten($color-background, 5%);
+  gap: 10px;
+  &_icon {
+    color: $text-color;
+  }
+}
+
+.explore {
+  background-color: lighten($color-background, 15%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3% 8% 50px;
+  h2 {
+    text-align: center;
+  }
+  p {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  &_btn {
+    @include btn;
+  }
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  padding: 3% 8% 8%;
+  gap: 15px;
+  h2 {
+    @include mq(md) {
+      text-align: center;
+    }
+  }
+  &--large {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @include mq(md) {
+      flex-direction: row;
+      gap: 30px;
+    }
+  }
+  &_list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 20px;
+    background-color: lighten($color-background, 15%);
+    box-shadow: 5px 5px 5px 0 lighten($color-background, 5%);
+    position: relative;
+    @include mq(md) {
+      width: calc((100% - 10px) / 3);
+      padding: 10px;
+    }
+    &:hover {
+      cursor: pointer;
+      background-color: lighten($color-primary, 35%);
+      .intro_icon {
+        color: $color-primary;
+      }
+    }
+  }
+  &_icon {
+    color: lighten($text-color, 60%);
+    margin-left: 15px;
+  }
+  &_item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9356DC;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: lighten($text-color, 100%);
+    position: absolute;
+    left: -15px;
+  }
+}
+
+#restaurant {
+  background-color: lighten($color-background, 15%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 3% 8% 8%;
+}
+
+.restaurant {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @include mq(md){
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+  }
+  &_title {
+    @include mq(md) {
+      text-align: center;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: $text-color;
+    @include mq(md) {
+      width: calc((100% - 20px) / 2);
+    }
+  }
+  .card {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 0 lighten($color-background, 5%);
+    gap: 10px;
+    .img {
+      width: 100%;
+      height: 70%;
+      object-fit: cover;
+      border-radius: 20px 20px 0 0;
+      &.portrait {
+        @include img_portrait;
+      }
+      &.landscape {
+        @include img_landscape;
+      }
+    }
+    .label {
+      position: absolute;
+      color: darken($color-tertiary, 35%);
+      background-color: $color-tertiary;
+      width: 75px;
+      height: 30px;
+      font-weight: bolder;
+      text-align: center;
+      padding: 6px;
+      top: 20px;
+      right: 20px;
+    }
+    &_heading {
+      display: flex;
+      padding: 3% 20px;
+      align-items: center;
+    }
+    &_text {
+      display: flex;
+      flex-direction: column;
+      margin-right: auto;
+      gap: 5px;
+      h3, p {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.like_btn {
+  @include btn--color;
+  position: relative;
+  font-size: 30px;
+  &--selected {
+    @include btn--color;
+    position: absolute;
+    right: 20px;
+    font-size: 30px;
+    opacity: 0;
+    &:hover {
+      animation: fill 500ms ease-in-out forwards;
+      cursor: pointer;
+    }
+    @keyframes fill {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+footer {
+  @include footer;
+  z-index: 3;
+}

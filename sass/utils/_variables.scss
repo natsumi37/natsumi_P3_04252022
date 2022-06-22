@@ -34,3 +34,25 @@ $indent-amount: 40px !default;
 // However, changing any of the variables above will cause
 // $normalize-vertical-rhythm to be automatically set to true.
 $normalize-vertical-rhythm: false !default;
+
+// ==== variables start here ====
+
+// color
+
+$color-primary: #9356DC;
+$color-secondary: #FF79DA;
+$color-tertiary: #99E2D0;
+$color-background: #D3D3D3;
+$text-color: black;
+
+
+// breakpoints
+
+$sizes: sm, md, lg, xl;
+
+$breakpoints: (
+  'sm': 'screen and (min-width: 640px)',
+  'md': 'screen and (min-width: 768px)',
+  'lg': 'screen and (min-width: 1024px)',
+  'xl': 'screen and (min-width: 1280px)',
+) !default;

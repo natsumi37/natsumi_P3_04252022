@@ -1,0 +1,71 @@
+// media query
+
+@mixin mq ($size) {
+  @media #{map-get($breakpoints, $size)}{
+    @content;
+  }
+}
+
+// images
+
+@mixin img_portrait {
+  object-position: 40% 60%;
+}
+@mixin img_landscape {
+  object-position: 20% 80%;
+}
+
+// button
+
+@mixin btn {
+  background: linear-gradient(to bottom right, $color-secondary, $color-primary);
+  border-radius: 30px;
+  border: none;
+  padding: 18px 30px;
+  color: lighten($text-color, 100%);
+  box-shadow: 0 5px 5px 0 lighten($color-background, 5%);
+  &:hover {
+    cursor: pointer;
+    background: linear-gradient(to bottom right, (lighten($color-secondary, 2%), lighten($color-primary, 2%)));
+    box-shadow: 0 5px 5px 0 $color-background;
+  }
+}
+
+@mixin btn--color {
+  background-image: linear-gradient($color-primary, $color-secondary);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+
+}
+
+// footer
+
+@mixin footer {
+  background-color: darken($color-background, 60%);
+  color: lighten($text-color, 100%);
+  padding: 3% 8%;
+  .footer_heading {
+    font-family: 'Shrikhand', cursive;
+    font-weight: lighter;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    p {
+      margin: 0;
+    }
+    li {
+      margin: 10px 0;
+    }
+  }
+  .footer_list {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .footer_contact {
+    text-decoration: none;
+    color: lighten($text-color, 100%);
+  }
+}

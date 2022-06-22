@@ -1,0 +1,236 @@
+.course_header {
+  display: flex;
+  align-items: center;
+  margin: 25px;
+  .course_icon {
+    text-decoration: none;
+    color: $text-color;
+    font-size: 20px;
+  }
+  img {
+    width: 60%;
+    margin: 0 auto;
+    @include mq(md) {
+      width: 300px;
+    }
+  }
+}
+
+.course_feature {
+  position: relative;
+  z-index: 1;
+  .img.landscape {
+    width: 100%;
+    object-fit: cover;
+    @include img_landscape;
+    @include mq(md) {
+      height: 400px;
+    }
+  }
+  .img.portrait {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    @include img_portrait;
+    @include mq(md) {
+      height: 400px;
+    }
+  }
+}
+
+.course_background {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin-top: -60px;
+  gap: 20px;
+  background-color: lighten($color-background, 15%);
+  border-radius: 40px 40px 0 0;
+  padding: 30px 3% 50px;
+}
+
+.course_heading {
+  display: flex;
+  align-items: baseline;
+  padding: 0 20px;
+  h2 {
+    font-family: 'Shrikhand', cursive;
+    font-size: 200%;
+    margin: 0 auto 0 0;
+    @include mq(md) {
+      margin: 0 auto;
+    }
+  }
+}
+
+.course_btn {
+  @include btn--color;
+  position: relative;
+  font-size: 30px;
+  &--selected {
+    @include btn--color;
+    position: absolute;
+    top: 30px;
+    right: calc(3% + 20px);
+    font-size: 30px;
+    opacity: 0;
+    &:hover {
+      animation: fill 500ms ease-in-out forwards;
+      cursor: pointer;
+    }
+    @keyframes fill {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.menu_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu--large {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  @include mq(md) {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px;
+  }
+}
+
+.menu_heading {
+  color: lighten($text-color, 10%);
+  font-weight: 400;
+  &-bar {
+    border-top: solid 3px $color-tertiary;
+    width: 50px;
+  }
+}
+
+.menu {
+  display: flex;
+  background-color: lighten($text-color, 100%);
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 0 lighten($color-background, 5%);
+  overflow: hidden;
+  @include mq(md) {
+    width: calc(100% / 3);
+    height: 120px;
+  }
+  &_text {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 5px;
+    width: 100%;
+    transform-origin: right;
+    @include mq(md) {
+      justify-content: center;
+    }
+  }
+  &_name {
+    margin: 0;
+  }
+  &_bottom {
+    display: flex;
+    &-side {
+      margin: 0;
+    }
+    &-price {
+      margin: 0 0 0 auto;
+      font-weight: 700;
+    }
+  }
+  &--selected {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: lighten($text-color, 100%);
+    background-color: $color-tertiary;
+    font-size: 40px;
+    width: 0;
+    transform-origin: right;
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  animation: fadeup 1000ms 100ms ease forwards;
+  opacity: 0;
+  @keyframes fadeup {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  &.delay-second {
+    animation-delay: 400ms;
+  }
+  &.delay-third {
+    animation-delay: 700ms;
+  }
+  &.delay-fourth {
+    animation-delay: 1000ms;
+  }
+  &:hover {
+    cursor: pointer;
+    .menu_text {
+      animation: slide_text 800ms forwards;
+    }
+    @keyframes slide_text {
+      0% {
+        width: 100%;
+      }
+      100% {
+        width: 80%;
+      }
+    }
+    .menu_name, .menu_bottom-side {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .menu--selected {
+      opacity: 1;
+      transform: translateX(0%);
+      transition-duration: 800ms;
+      animation: slide_anime 800ms forwards;
+    }
+    @keyframes slide_anime {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 20%;
+      }
+    }
+    .fa-solid.fa-circle-check {
+      animation: rotation 500ms 300ms forwards;
+    }
+    @keyframes rotation {
+      to {
+        transform: rotate(1turn);
+      }
+    }
+  }
+  &_btn {
+    @include btn;
+    width: 200px;
+    margin: 20px auto 0 auto;
+  }
+}

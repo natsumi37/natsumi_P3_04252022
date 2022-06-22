@@ -80,6 +80,7 @@
   }
   &_btn {
     @include btn;
+    font-weight: 700;
   }
 }
 
